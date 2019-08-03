@@ -1,7 +1,3 @@
-console.log('this is client side js')
-
-
-
 const form = document.querySelector('form')
 const input = document.querySelector('input')
 form.addEventListener('submit', (e) => {
@@ -13,9 +9,8 @@ form.addEventListener('submit', (e) => {
   messageOne.textContent = 'Searching...'
   messageTwo.textContent = ''
 
-  fetch(`http://localhost:3000/weather?address=${searchVal}`).then((response) => {
+  fetch(`/weather?address=${searchVal}`).then((response) => {
     response.json().then((data) => {
-       console.log(data)
       if (data.error) {
         messageOne.textContent = data.error
         messageTwo.textContent = ''
